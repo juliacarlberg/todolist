@@ -16,10 +16,10 @@ start();
 function removeTask(){
     let myCloseList= document.getElementsByTagName("li");
     for(i=0; i<myCloseList.length; i++){
-      let span= document.createElement("SPAN");
-      span.className="close";
-      myCloseList[i].appendChild(span);
-      span.innerHTML=("X");
+      let closeButton= document.createElement("BUTTON");
+      closeButton.className="close";
+      myCloseList[i].appendChild(closeButton);
+      closeButton.innerHTML="&#10005;";
     } 
 
     let close= document.getElementsByClassName("close");
@@ -32,6 +32,7 @@ function removeTask(){
 
 }
 
+
 removeTask();
 
 function addTask(){
@@ -40,12 +41,13 @@ function addTask(){
     let liTag= document.createElement("li");
     liTag.innerHTML= (inputTag.value);
     ulTag.appendChild(liTag);
-    
+
 }
 
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
+
+let list = document.querySelector("ul");
+list.addEventListener("click", function(ev) {
+  if (ev.target.tagName === "LI") {
+    ev.target.classList.toggle("checked");
   }
 }, false);
