@@ -1,11 +1,28 @@
-let theTasks= ["Plugga", "Äta", "Sova"];
+class Todo{
+  constructor(todo, finished){
+    this.todo= todo;
+    this.finished= finished;
+  }
+}
+
+let taskOne= new Todo("Plugga");
+let taskTwo= new Todo("Äta")
+let taskThree= new Todo("Sova")
+
+let theTasks= [taskOne, taskTwo, taskThree];
+
+const one= Object.values(taskOne);
+const two= Object.values(taskTwo);
+const three= Object.values(taskThree);
+
+let myArrays= [one, two, three];
 
 function start(){
     let ulTag= document.getElementById("theList");
 
-    for(let i=0; i<theTasks.length; i++){
+    for(let i=0; i<myArrays.length; i++){
         let liTag= document.createElement("li");
-        liTag.innerHTML= (theTasks[i]);
+        liTag.innerHTML= (myArrays[i]);
         ulTag.appendChild(liTag);
     }
 }
@@ -36,12 +53,15 @@ function removeTask(){
 removeTask();
 
 function addTask(){
-    let inputTag= document.getElementById("input");
-    let ulTag= document.getElementById("theList");
-    let liTag= document.createElement("li");
-    liTag.innerHTML= (inputTag.value);
-    ulTag.appendChild(liTag);
-
+  let inputTag= document.getElementById("input");
+  let ulTag= document.getElementById("theList");
+  let liTag= document.createElement("li");
+  liTag.innerHTML= (inputTag.value);
+  ulTag.appendChild(liTag);
+  let closeButton= document.createElement("BUTTON");
+  closeButton.className="close";
+  liTag.appendChild(closeButton);
+  closeButton.innerHTML="&#10005;";
 }
 
 
