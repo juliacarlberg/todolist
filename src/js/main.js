@@ -1,28 +1,18 @@
-class Todo{
-  constructor(todo, finished){
-    this.todo= todo;
-    this.finished= finished;
-  }
-}
+import { Todo } from "./Todo";
 
-let taskOne= new Todo("Plugga");
-let taskTwo= new Todo("Äta")
-let taskThree= new Todo("Sova")
 
-let theTasks= [taskOne, taskTwo, taskThree];
-
-const one= Object.values(taskOne);
-const two= Object.values(taskTwo);
-const three= Object.values(taskThree);
-
-let myArrays= [one, two, three];
+let todoList= [
+  new Todo("Plugga", false),
+  new Todo("Städa", false),
+  new Todo("Äta", false),
+]
 
 function start(){
     let ulTag= document.getElementById("theList");
 
-    for(let i=0; i<myArrays.length; i++){
+    for(let i=0; i<todoList.length; i++){
         let liTag= document.createElement("li");
-        liTag.innerHTML= (myArrays[i]);
+        liTag.innerHTML= (todoList[i].todo);
         ulTag.appendChild(liTag);
     }
 }
@@ -62,6 +52,13 @@ function addTask(){
   closeButton.className="close";
   liTag.appendChild(closeButton);
   closeButton.innerHTML="&#10005;";
+  let close= document.getElementsByClassName("close");
+  for(i=0; i<close.length; i++){
+    close[i].onclick= function(){
+      let div= this.parentElement;
+      div.style.display= "none";
+    }
+  }
 }
 
 

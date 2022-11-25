@@ -1,6 +1,7 @@
 body{
     background-color: rgb(196, 150, 214);
     font-family:'Courier New', Courier, monospace;
+    //font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #container{
@@ -26,16 +27,17 @@ ul{
 li{
     cursor: pointer;
     list-style: none;
-    margin: 10px;
+    margin: 5px;
     width: 300px;
     text-align: center;
-    background-color: #888;
+    background-color: white;
     border: 2px solid white;
-    padding: 3%;
+    padding: 2%;
+    color: black;
 }
 
 li:hover{
-    background-color: rgb(56, 56, 56);
+    background-color: #888;
     transition: 0.5s;
 }
 
@@ -71,20 +73,7 @@ form{
 }
 
 ul li.checked {
-    background: #888;
-    color: #fff;
     text-decoration: line-through;
-}
-
-ul li.checked::before {
-    content: '';
-    display: flex;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
 }
 
 .close {
@@ -94,6 +83,6 @@ ul li.checked::before {
     padding: 12px 16px 12px 16px;
     border: none; 
     cursor: pointer;
-    background-color: #888;
+    background-color: white;
     margin-left: 100px;
 }
