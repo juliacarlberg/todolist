@@ -13,6 +13,22 @@ function start(){
     let liTag= document.createElement("li");
     liTag.innerHTML= (todoList[i].todo);
     ulTag.appendChild(liTag);
+
+    let theObject = todoList[i];
+    liTag.addEventListener("click", () => {
+     if (theObject.finished === false) {
+       theObject.finished = true;
+       console.log("Nu blir finished=true på objektet ", theObject);
+       liTag.classList.toggle("__checked");
+      }
+      else {
+       if (theObject.finished === true) {
+         theObject.finished = false;
+         console.log("Nu blir finished=false på objektet ", theObject);
+         liTag.classList.remove("__checked");
+        }
+      }
+    });
   }
 };
 
@@ -66,16 +82,3 @@ function addTask(){
 };
 
 addTask();
-
-let list = document.querySelector("ul");
-list.addEventListener("click", function(ev) {
-  if (ev.target.tagName === "LI") {
-    ev.target.classList.toggle("checked");
-  }
-}, false);
-
-let liTag= document.getElementsByTagName("li");
-
-liTag.addEventListener("click", ()=>{
-  
-})
