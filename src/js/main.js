@@ -78,7 +78,25 @@ function addTask(){
       };
     };
   });
-  
+
+  for(let i=0; i<todoList.length; i++){
+
+    let theObject = todoList[i];
+    liTag.addEventListener("click", () => {
+     if (theObject.finished === false) {
+       theObject.finished = true;
+       console.log("Nu blir finished=true på objektet ", theObject);
+       liTag.classList.toggle("__checked");
+      }
+      else {
+       if (theObject.finished === true) {
+         theObject.finished = false;
+         console.log("Nu blir finished=false på objektet ", theObject);
+         liTag.classList.remove("__checked");
+        }
+      }
+    });
+  } 
 };
 
 addTask();
